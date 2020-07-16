@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>得点変換</title>
+        <link rel="stylesheet" href="../static/css/style13.css">
+    </head>
+    <body>
+        <h1>点数変換</h1>
+        <form method="post" action='/'>
+            <div>
+                <p>得点:
+                    <input type="text" name="point" value="{% if res %}{{ res.point }}{% endif %}">
+                </p>
+            </div>
+            <div>
+                <p>
+                    順位:
+                    <input type="text" name="rank" value="{% if res %}{{ res.rank }}{% endif %}">
+                </p>
+            </div>
+            <div>
+                <input type="submit" name="calc" value="変換">
+            </div>
+        </form>
+        {% if res %}
+        <div>
+            {% if res.result %}
+            <div class="result">
+            {{ res.result }}
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </body>
+</html>
